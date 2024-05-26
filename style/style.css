@@ -20,3 +20,7 @@ p {
 .flex-container {
     display: flex;
 }
+
+.tut-img {
+    width: 350px;
+}
