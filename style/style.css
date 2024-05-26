@@ -16,3 +16,7 @@ h1 {
 p {
     font-size: large;
 }
+
+.flex-container {
+    display: flex;
+}
