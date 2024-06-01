@@ -17,8 +17,41 @@ p {
     font-size: large;
 }
 
-.flex-container {
+.flex-container-start {
     display: flex;
+    justify-content: flex-start;
+}
+
+.flex-container-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-container-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container-space-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-container-space-evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flex-item {
+    margin: 10px;
+    background-color: black;
+    height: 60px;
+    width: 60px;
 }
 
 .tut-img {
