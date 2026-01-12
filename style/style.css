@@ -47,6 +47,10 @@ p {
     justify-content: space-evenly;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
 .flex-item {
     margin: 10px;
     background-color: black;

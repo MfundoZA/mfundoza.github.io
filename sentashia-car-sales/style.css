@@ -1,0 +1,379 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary-color: #f0a500; /* Gold/Orange from the ad text */
+    --secondary-color: #ffffff;
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --card-bg: #1e1e2e;
+    --text-grey: #cccccc;
+    --phone-green: #7FB093; /* Similar to the green number in the image */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.btn-primary:hover {
+    background-color: #d18d00;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: rgba(10, 10, 10, 0.95);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.btn-nav {
+    background-color: var(--primary-color);
+    color: var(--dark-bg) !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    /* Use a placeholder for a sunset car drive - replace with real image */
+    background-image: url('https://images.unsplash.com/photo-1503376763036-064379896fdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 60px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Make background an image */
+    background-image: url(hero.png);
+    background-position: center; /* or center center */
+    background-size: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtext {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+/* A subtle pulse animation for the main CTA */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(240, 165, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(240, 165, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(240, 165, 0, 0); }
+}
+
+/* --- Sections General --- */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+}
+
+/* --- About Section --- */
+.about {
+    background-color: var(--darker-bg);
+}
+
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image img {
+    width: 100%;
+    min-width: 200px;
+    min-height: 140px;
+    border-radius: 10px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.about-text .lead {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: var(--text-grey);
+    margin-bottom: 25px;
+}
+
+/* --- Services Section --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #333;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--text-grey);
+}
+
+.highlight-card {
+    background: linear-gradient(145deg, var(--card-bg), #2a2a3e);
+    border: 2px solid var(--primary-color);
+}
+
+/* --- Contact Section --- */
+.contact {
+    background-color: var(--darker-bg);
+    /* Add a subtle background image texture if desired */
+    background-image: linear-gradient(to top, rgba(10,10,10,0.9), rgba(10,10,10,0.8)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-box {
+    background-color: rgba(30, 30, 46, 0.95); /* Semi-transparent card */
+    padding: 50px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 5px solid var(--primary-color);
+}
+
+.contact-box h2 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.contact-box p {
+    color: var(--text-grey);
+    margin-bottom: 30px;
+}
+
+.phone-highlight {
+    background-color: rgba(127, 176, 147, 0.1); /* Subtle green background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%;
+    border: 2px solid var(--phone-green);
+}
+
+.phone-highlight i {
+    color: var(--phone-green);
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.phone-highlight a {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--phone-green); /* Using the green from the ad */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input, 
+.contact-form select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: var(--dark-bg);
+    color: var(--secondary-color);
+    font-family: var(--font-body);
+}
+
+.contact-form input:focus, 
+.contact-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #000;
+    padding: 20px 0;
+    text-align: center;
+    color: var(--text-grey);
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        display: none; /* Hiding nav links on mobile for simplicity in this demo */
+    }
+    
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-box {
+        padding: 30px 20px;
+    }
+    
+    .phone-highlight a {
+        font-size: 1.5rem;
+    }
+}
