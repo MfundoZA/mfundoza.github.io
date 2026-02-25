@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuta | Education Reimagined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --brand-color: #019FA8;
+            --brand-dark: #017e85;
+            --brand-light: #e6f5f6;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--brand-color);
+            letter-spacing: -1px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-color);
+        }
+
+        /* Hero Section - Using Organic Shapes */
+        .hero {
+            padding: 10rem 10% 8rem;
+            background: linear-gradient(135deg, var(--brand-light) 0%, #fff 100%);
+            position: relative;
+            clip-path: ellipse(150% 100% at 50% 0%); /* Curved bottom */
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero h1 span {
+            color: var(--brand-color);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--brand-color);
+            color: white;
+            box-shadow: 0 10px 20px rgba(1, 159, 168, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(1, 159, 168, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 10%;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 30px;
+            background: var(--white);
+            border: 1px solid #f0f0f0;
+            transition: border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle non-straight accent in cards */
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--brand-light);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            z-index: 0;
+        }
+
+        .feature-card * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card .icon-box {
+            color: var(--brand-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 10%;
+            background: #fafafa;
+            position: relative;
+        }
+
+        /* Angled Divider */
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding-top: 4rem;
+        }
+
+        .faq-group h2 {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-content {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.active .faq-content {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 10%;
+            text-align: center;
+            background: var(--brand-color);
+            color: white;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 50px;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .btn-secondary {
+            background: #000;
+            color: white;
+        }
+
+        footer {
+            padding: 4rem 10%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                grid-template-columns: 1fr;
+            }
+            .email-form {
+                flex-direction: column;
+                background: none;
+                padding: 0;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Tuta</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">Get Started</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Teach, Learn, and Earn:<br><span>Education Reimagined</span></h1>
+        <p>Tuta is the EdTech platform where you can tutor high school and university courses, create custom video content, and monetize your knowledge.</p>
+        <a href="#cta" class="btn btn-primary">Join the the waiting list</a>
+    </header>
+
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon-box"><i data-lucide="banknote" size="40"></i></div>
+                <h3>Earn 80% Revenue</h3>
+                <p>Get paid based on performance. Create once, earn forever from subscription views, or run live sessions for immediate income.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box"><i data-lucide="layout-template" size="40"></i></div>
+                <h3>CAPS Aligned Tools</h3>
+                <p>Effortlessly upload video lessons and interactive quizzes aligned with South African CAPS or university modules.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box"><i data-lucide="languages" size="40"></i></div>
+                <h3>Culturally Resonant</h3>
+                <p>Connect with tutors who understand local challenges. Learn in Afrikaans, Xhosa, or English with relevant examples.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="faq-group">
+                <h2><i data-lucide="graduation-cap"></i> For Tutors</h2>
+                
+                <div class="faq-item">
+                    <h4>Who can become a tutor? <i data-lucide="chevron-down"></i></h4>
+                    <div class="faq-content">Certified teachers, professionals, university students, and top Grade 12 graduates are welcome after a screening process.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I earn money? <i data-lucide="chevron-down"></i></h4>
+                    <div class="faq-content">Earn through subscription revenue (80% split) or set your own price for live 1-on-1 and group sessions.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What subjects can I teach? <i data-lucide="chevron-down"></i></h4>
+                    <div class="faq-content">Any subject in the South African CAPS curriculum or common university courses.</div>
+                </div>
+            </div>
+
+            <div class="faq-group">
+                <h2><i data-lucide="users"></i> For Learners</h2>
+                
+                <div class="faq-item">
+                    <h4>What is the cost? <i data-lucide="chevron-down"></i></h4>
+                    <div class="faq-content">Subscriptions range from R79–R199 per month for unlimited access to video lessons and quizzes.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is content curriculum aligned? <i data-lucide="chevron-down"></i></h4>
+                    <div class="faq-content">Yes, most content is created by local educators specifically for CAPS and local university standards.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I get 1-on-1 help? <i data-lucide="chevron-down"></i></h4>
+                    <div class="faq-content">Absolutely. You can book personalized live sessions directly with your favorite tutors.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+        <h2>Ready to Teach or Ready to Learn?</h2>
+        <p>Join the fastest-growing network of local tutors and learners in South Africa. Get early access updates and launch notifications.</p>
+        <form class="email-form">
+            <input type="email" placeholder="Enter your email address..." required>
+            <button type="submit" class="btn btn-secondary">Secure My Spot</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Tuta EdTech. Built for South African Excellence.</p>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('i[data-lucide="chevron-down"]');
+                // Optional: Rotate icon or close others
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
