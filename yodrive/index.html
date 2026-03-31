@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoDriv360 | Mobility Without Barriers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('YOUR_POSTHOG_API_KEY', {api_host:'https://app.posthog.com'})
+    </script>
+    <style>
+        .organic-shape {
+            border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+        }
+        .organic-mask {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            overflow: hidden;
+        }
+        .yellow-glow:hover {
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.3);
+        }
+        .custom-gradient {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        }
+        
+        .hero, .riders, .fleet, .join {
+             min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tighter italic">
+                YO<span class="text-yellow-400">DRIV</span>360
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#riders" class="hover:text-yellow-400 transition">Riders</a>
+                <a href="#drivers" class="hover:text-yellow-400 transition">Drivers</a>
+                <a href="#join" class="hover:text-yellow-400 transition">Join Us</a>
+            </div>
+            <button class="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm uppercase yellow-glow transition">
+                Get Moving
+            </button>
+        </div>
+    </nav>
+
+    <header class=" hero relative pt-32 pb-20 px-6 custom-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">
+                Ride Without <br> <span class="text-yellow-400">Obstacles.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mb-10">
+                The data-free, airtime-free, and worry-free way to move.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4">
+                <button onclick="posthog.capture('hero_rider_click')" class="bg-white text-black px-10 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition transform hover:-translate-y-1">
+                    Join the waiting list
+                </button>
+            </div>
+        </div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-yellow-400/10 organic-shape blur-3xl"></div>
+    </header>
+
+    <section id="riders" class="py-24 px-6 bg-white text-black relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <span class="text-yellow-500 font-bold uppercase tracking-widest">01. The Passenger Experience</span>
+                <h2 class="text-4xl md:text-6xl font-black mt-4">Your Ride, Always Within Reach.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-yellow-400 transition">
+                    <i class="fa-solid fa-phone-volume text-3xl mb-6"></i>
+                    <h3 class="font-bold text-xl mb-3">Toll-Free Booking</h3>
+                    <p class="text-gray-600 text-sm">No data? No airtime? No problem. Request a ride without spending a cent on connectivity.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-yellow-400 transition">
+                    <i class="fa-solid fa-user-shield text-3xl mb-6"></i>
+                    <h3 class="font-bold text-xl mb-3">Vetted Drivers</h3>
+                    <p class="text-gray-600 text-sm">Every driver undergoes rigorous background checks and specialized training.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-yellow-400 transition">
+                    <i class="fa-solid fa-heart-circle-check text-3xl mb-6"></i>
+                    <h3 class="font-bold text-xl mb-3">Safety Standards</h3>
+                    <p class="text-gray-600 text-sm">High-visibility SOS button and real-time trip sharing. We monitor every journey.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-yellow-400 transition">
+                    <i class="fa-solid fa-leaf text-3xl mb-6"></i>
+                    <h3 class="font-bold text-xl mb-3">Low-Data UI</h3>
+                    <p class="text-gray-600 text-sm">Built to be light on data and navigation that saves battery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team / Fleet Section -->
+    <section id="drivers" class="py-24 px-6 bg-black text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <span class="text-yellow-400 font-bold uppercase tracking-widest text-sm">02. The Faces of YoDriv</span>
+                    <h2 class="text-4xl md:text-6xl font-black mt-4 tracking-tighter">Meet the team.</h2>
+                </div>
+                <p class="text-gray-500 max-w-xs text-sm uppercase font-bold tracking-widest border-l border-yellow-400 pl-6">
+                    Every driver is a partner in mobility, trained for excellence and safety.
+                </p>
+            </div>
+
+            <!-- Drivers Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                
+                <!-- Driver 1 -->
+                <div class="group cursor-pointer" onclick="posthog.capture('view_driver_kofi')">
+                    <div class="aspect-[4/5] organic-mask bg-zinc-900 mb-6 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
+                             alt="Driver Kofi" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+                            <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">Gold Rated</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Kofi A.</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">2024 Toyota Corolla</p>
+                    <div class="pt-4 border-t border-white/10 text-gray-500 text-xs flex justify-between items-center">
+                        <!-- <span>Assigned Vehicle:</span>
+                        <span class="text-white font-medium uppercase">2024 Toyota Corolla</span> -->
+                    </div>
+                </div>
+
+                <!-- Driver 2 -->
+                <div class="group cursor-pointer" onclick="posthog.capture('view_driver_sarah')">
+                    <div class="aspect-[4/5] organic-mask bg-zinc-900 mb-6 relative overflow-hidden" style="border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800" 
+                             alt="Driver Sarah" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Sarah M.</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">2023 Honda Civic</p>
+                     <div class="pt-4 border-t border-white/10 text-gray-500 text-xs flex justify-between items-center">
+                        <!-- <span>Assigned Vehicle:</span>
+                        <span class="text-white font-medium uppercase">2023 Honda Civic</span> -->
+                    </div>
+                </div>
+
+                <!-- Driver 3 -->
+                <div class="group cursor-pointer" onclick="posthog.capture('view_driver_marcus')">
+                    <div class="aspect-[4/5] organic-mask bg-zinc-900 mb-6 relative overflow-hidden" style="border-radius: 40% 60% 50% 50% / 40% 40% 60% 60%;">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800" 
+                             alt="Driver Marcus" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Marcus T.</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">2025 VW Jetta</p>
+                    <div class="pt-4 border-t border-white/10 text-gray-500 text-xs flex justify-between items-center">
+                        <!-- <span>Assigned Vehicle:</span>
+                        <span class="text-white font-medium uppercase">2025 VW Jetta</span> -->
+                    </div>
+                </div>
+
+                <!-- Driver 4 -->
+                <div class="group cursor-pointer" onclick="posthog.capture('view_driver_elena')">
+                    <div class="aspect-[4/5] organic-mask bg-zinc-900 mb-6 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                             alt="Driver Elena" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Elena R.</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">2024 Toyota Camry</p>
+                    <div class="pt-4 border-t border-white/10 text-gray-500 text-xs flex justify-between items-center">
+                        <!-- <span>Assigned Vehicle:</span>
+                        <span class="text-white font-medium uppercase">2024 Toyota Camry</span> -->
+                    </div>
+                </div>
+
+                <!-- Driver 5 -->
+                <div class="group cursor-pointer" onclick="posthog.capture('view_driver_david')">
+                    <div class="aspect-[4/5] organic-mask bg-zinc-900 mb-6 relative overflow-hidden" style="border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800" 
+                             alt="Driver David" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">David S.</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">2023 Hyundai Elantra</p>
+                    <div class="pt-4 border-t border-white/10 text-gray-500 text-xs flex justify-between items-center">
+                        <!-- <span>Assigned Vehicle:</span>
+                        <span class="text-white font-medium uppercase">2023 Hyundai Elantra</span> -->
+                    </div>
+                </div>
+
+                <!-- Driver 6 -->
+                <div class="group cursor-pointer" onclick="posthog.capture('view_driver_nina')">
+                    <div class="aspect-[4/5] organic-mask bg-zinc-900 mb-6 relative overflow-hidden" style="border-radius: 30% 70% 50% 50% / 50% 50% 70% 30%;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" 
+                             alt="Driver Nina" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Nina L.</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">2024 Toyota RAV4</p>
+                    <div class="pt-4 border-t border-white/10 text-gray-500 text-xs flex justify-between items-center">
+                        <!-- <span>Assigned Vehicle:</span>
+                        <span class="text-white font-medium uppercase">2024 Toyota RAV4</span> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="relative py-32 px-6 bg-zinc-950 border-t border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+            <div class="lg:w-1/2 z-10">
+                <h2 class="text-5xl md:text-7xl font-black mb-6 leading-none">Ready to <br><span class="text-yellow-400">Join the Movement?</span></h2>
+                <p class="text-lg text-gray-400 mb-10 max-w-lg">
+                    YoDriv360 is a solution tailored for our unique landscape. Drop your details below to secure your spot in line.
+                </p>
+                
+                <form id="mailchimp-form" class="space-y-4 mb-8 max-w-lg">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="FNAME" class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Full Name</label>
+                            <input type="text" id="FNAME" name="FNAME" required 
+                                class="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-yellow-400 focus:outline-none transition"
+                                placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="WHATSAPP" class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">WhatsApp Number</label>
+                            <input type="tel" id="WHATSAPP" name="WHATSAPP" required 
+                                class="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-yellow-400 focus:outline-none transition"
+                                placeholder="+27 82 123 4567">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-yellow-400 text-black px-10 py-4 rounded-xl font-black text-xl yellow-glow transition transform hover:-translate-y-1">
+                        Join the Waitlist
+                    </button>
+                    
+                    <p id="form-message" class="text-sm mt-3 hidden"></p>
+                </form>
+            </div>
+            
+            <div class="lg:w-1/2 relative flex justify-center lg:justify-end">
+                <div class="absolute inset-0 bg-yellow-400/20 organic-shape blur-2xl transform scale-125"></div>
+                <div class="w-full max-w-md aspect-square organic-mask bg-zinc-900 border-4 border-white/10">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800" alt="Driving Experience" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 transition duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Analytics: Track Scroll
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 80) {
+                posthog.capture('scrolled_to_bottom_cta');
+            }
+        });
+
+        // Smooth Scroll Logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
