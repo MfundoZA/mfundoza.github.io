@@ -1,0 +1,1421 @@
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">Toast Office | Delicious Certified</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Space+Mono:wght@400;700&amp;family=Special+Elite&amp;display=swap" rel="stylesheet" vid="7">
+    <style vid="8">
+        :root {
+            --parchment: #FDFBF7;
+            --ink: #1C1C1C;
+            --brass: #A68B67;
+            --wax: #7D2619;
+            --manila: #E8E2D2;
+            --border: rgba(28, 28, 28, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="black"/></svg>'), auto;
+        }
+
+        body {
+            background-color: var(--parchment);
+            color: var(--ink);
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        
+        .micro-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--brass);
+            font-weight: 700;
+        }
+
+        .serif-display {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        
+        nav {
+            padding: 1rem;
+            background: var(--wax);
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--parchment);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--ink);
+        }
+
+        
+        header {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            padding: 60px;
+            position: relative;
+        }
+
+        .logo {
+            grid-column: 5 / 9;
+            text-align: center;
+            font-size: 42px;
+            align-self: start;
+        }
+
+        .hero-image-container {
+            grid-column: 2 / 6;
+            align-self: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            filter: sepia(0.2) contrast(0.9);
+            transition: filter 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .hero-image:hover {
+            filter: sepia(0.5) contrast(1.1);
+        }
+
+        .hero-text {
+            grid-column: 7 / 12;
+            align-self: center;
+            padding-left: 40px;
+        }
+
+        .headline {
+            font-size: 72px;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .brass-slot {
+            width: 200px;
+            height: 40px;
+            border: 2px solid var(--brass);
+            position: relative;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .brass-slot::after {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 4px;
+            background: var(--ink);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2) inset;
+        }
+
+        .stamp-cta {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 30px;
+            border: 2px solid var(--wax);
+            color: var(--wax);
+            font-family: 'Special Elite', cursive;
+            font-size: 20px;
+            text-decoration: none;
+            transform: rotate(-3deg);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .stamp-cta:active {
+            transform: scale(0.95) rotate(-3deg);
+            background: rgba(125, 38, 25, 0.05);
+        }
+
+        
+        .sorting-section {
+            padding: 120px 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .sorting-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            margin-top: 60px;
+        }
+
+        .sort-box {
+            background: var(--parchment);
+            padding: 40px;
+            min-height: 450px;
+            position: relative;
+            transition: background 0.4s ease;
+        }
+
+        .sort-box:hover {
+            background: var(--manila);
+        }
+
+        .sort-box h3 {
+            font-family: 'Special Elite', cursive;
+            font-size: 24px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--ink);
+            display: inline-block;
+        }
+
+        .menu-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .item-name {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .item-price {
+            font-size: 12px;
+            color: var(--brass);
+        }
+
+        .item-desc {
+            font-size: 11px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .envelope-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 28, 28, 0.03);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sort-box:hover .envelope-hover {
+            opacity: 1;
+        }
+
+        
+        .history-section {
+            padding: 120px 60px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            background: #f0ede6;
+        }
+
+        .postcard {
+            grid-column: 3 / 11;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            position: relative;
+        }
+
+        .postcard::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            bottom: 40px;
+            left: 60%;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .postcard-content {
+            font-family: 'Special Elite', cursive;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .postcard-meta {
+            padding-left: 20px;
+        }
+
+        .stamp-placeholder {
+            width: 80px;
+            height: 100px;
+            border: 2px dashed var(--border);
+            float: right;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        
+        .reservation-section {
+            padding: 120px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .manifest-form {
+            border: 2px solid var(--ink);
+            padding: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .input-group label {
+            font-size: 9px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .input-group input {
+            background: transparent;
+            border: none;
+            padding: 10px 0;
+            font-family: 'Special Elite', cursive;
+            font-size: 18px;
+            outline: none;
+        }
+
+        
+        footer {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Enhanced Envelope Back */
+        .envelope-back {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+            filter: drop-shadow(0 15px 30px rgba(28, 28, 28, 0.2)) drop-shadow(0 5px 15px rgba(125, 38, 25, 0.15));
+            animation: envelopeReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes envelopeReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        /* Envelope Texture Layer */
+        .envelope-texture {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #E8E2D2 0%, #F5F1E8 50%, #E8E2D2 100%),
+                        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(28, 28, 28, 0.02) 2px, rgba(28, 28, 28, 0.02) 4px);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+            border: 2px solid rgba(125, 38, 25, 0.15);
+            box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.08),
+                        inset 0 -10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Address Block */
+        .address-block {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-family: 'Space Mono', monospace;
+            color: rgba(28, 28, 28, 0.6);
+            z-index: 5;
+            text-align: left;
+        }
+
+        .address-line {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        .address-line.small {
+            font-size: 8px;
+            opacity: 0.7;
+        }
+
+        /* Postal Stamps */
+        .postal-stamp {
+            position: absolute;
+            width: 80px;
+            height: 45px;
+            border: 2px solid var(--wax);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(166, 139, 103, 0.1);
+            font-family: 'Space Mono', monospace;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--wax);
+            letter-spacing: 0.15em;
+            z-index: 6;
+            box-shadow: 0 3px 8px rgba(125, 38, 25, 0.2);
+            transform-origin: center;
+            animation: stampRotate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes stampRotate {
+            from {
+                opacity: 0;
+                transform: rotate(-25deg) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(var(--rotate)) scale(1);
+            }
+        }
+
+        .unclaimed-stamp {
+            top: 50px;
+            right: 40px;
+            --rotate: 12deg;
+            width: 70px;
+            height: 40px;
+            font-size: 8px;
+        }
+
+        .unclaimed-stamp .stamp-inner {
+            text-align: center;
+        }
+
+        .returned-stamp {
+            bottom: 80px;
+            left: 30px;
+            --rotate: -18deg;
+            width: 65px;
+            height: 38px;
+        }
+
+        .returned-stamp .stamp-inner {
+            text-align: center;
+        }
+
+        /* Postage Stamps Group */
+        .postage-stamps-group {
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            display: flex;
+            gap: -20px;
+            z-index: 7;
+            align-items: flex-start;
+        }
+
+        .postage-stamp {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .postage-stamp:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Wax Drips */
+        .wax-drip-container {
+            position: absolute;
+            inset: 0;
+            z-index: 8;
+            pointer-events: none;
+        }
+
+        .wax-drip {
+            position: absolute;
+            width: 8px;
+            height: 15px;
+            background: var(--wax);
+            border-radius: 50% 50% 50% 0;
+            opacity: 0.6;
+            filter: drop-shadow(0 2px 3px rgba(125, 38, 25, 0.3));
+            animation: dripFlow 2s ease-in-out infinite;
+        }
+
+        @keyframes dripFlow {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(3px); opacity: 0.4; }
+        }
+
+        /* Envelope Rope/Twine */
+        .envelope-rope {
+            position: absolute;
+            width: 250px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8B7355 20%, #8B7355 80%, transparent);
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%) rotateZ(-5deg);
+            z-index: 9;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            clip-path: polygon(0 30%, 5% 0%, 10% 40%, 15% 10%, 20% 50%, 25% 5%, 30% 45%, 35% 0%, 40% 40%, 45% 10%, 50% 35%, 55% 5%, 60% 40%, 65% 8%, 70% 45%, 75% 10%, 80% 40%, 85% 5%, 90% 45%, 95% 0%, 100% 30%);
+        }
+
+        /* Enhanced Wax Seal */
+        .wax-seal {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #A63D1A, var(--wax));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 15;
+            margin-top: -100px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 20px rgba(125, 38, 25, 0.5),
+                        0 4px 8px rgba(0, 0, 0, 0.2),
+                        inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+                        inset 2px 2px 4px rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            animation: sealDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes sealDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wax-seal:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 28px rgba(125, 38, 25, 0.6),
+                        0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .seal-shine {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+            border-radius: 50%;
+            top: 15px;
+            left: 15px;
+            filter: blur(2px);
+        }
+
+        .seal-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--parchment);
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .seal-wax-drip {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 12px;
+            background: var(--wax);
+            border-radius: 50% 50% 50% 0;
+            opacity: 0.8;
+        }
+
+        .footer-credits {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            opacity: 0.5;
+        }
+
+        
+        @keyframes inkSoak {
+            0% { opacity: 0; filter: blur(5px); transform: translateY(10px); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+
+        .reveal {
+            animation: inkSoak 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        .postmark-svg {
+            position: absolute;
+            width: 150px;
+            opacity: 0.8;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--parchment); }
+        ::-webkit-scrollbar-thumb { background: var(--brass); }
+
+        /* RESPONSIVE DESIGN - Tablet (768px and below) */
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            .logo {
+                grid-column: auto;
+                font-size: 32px;
+                margin-bottom: 40px;
+                order: 1;
+            }
+
+            .hero-image-container {
+                grid-column: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: 0.3;
+                margin-bottom: 0;
+            }
+
+            .hero-image {
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .hero-text {
+                grid-column: auto;
+                padding-left: 0;
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                order: 2;
+            }
+
+            .headline {
+                font-size: 42px;
+            }
+
+            .stamp-cta {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .sorting-section {
+                padding: 60px 20px;
+                min-height: auto;
+                height: auto;
+            }
+
+            .sorting-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+                margin-top: 40px;
+            }
+
+            .sort-box {
+                min-height: 300px;
+                padding: 30px 20px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .sort-box:last-child {
+                border-bottom: none;
+            }
+
+            .sort-box h3 {
+                font-size: 20px;
+            }
+
+            .history-section {
+                padding: 60px 20px;
+                grid-template-columns: 1fr;
+                min-height: auto;
+                height: auto;
+            }
+
+            .postcard {
+                grid-column: auto;
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 20px;
+            }
+
+            .postcard::before {
+                display: none;
+            }
+
+            .postcard-meta {
+                padding-left: 0;
+                padding-top: 20px;
+                border-top: 1px solid var(--border);
+            }
+
+            .stamp-placeholder {
+                width: 100%;
+                height: 150px;
+                float: none;
+                margin-bottom: 20px;
+            }
+
+            .reservation-section {
+                padding: 60px 20px;
+                min-height: auto;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .manifest-form {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .input-group input {
+                font-size: 16px;
+                padding: 8px 0;
+            }
+
+            footer {
+                min-height: auto;
+                height: auto;
+                padding: 60px 20px;
+            }
+
+            .envelope-back {
+                width: 85%;
+                max-width: 380px;
+                height: auto;
+                aspect-ratio: 3 / 2;
+            }
+
+            .address-block {
+                top: 20px;
+                left: 20px;
+            }
+
+            .address-line {
+                font-size: 8px;
+            }
+
+            .postage-stamps-group {
+                top: 40px;
+                right: 20px;
+                gap: -15px;
+            }
+
+            .postage-stamp {
+                width: 45px !important;
+                height: 45px !important;
+            }
+
+            .postal-stamp {
+                width: 60px;
+                height: 35px;
+                font-size: 7px;
+            }
+
+            .unclaimed-stamp {
+                top: 35px;
+                right: 20px;
+                width: 55px;
+                height: 32px;
+            }
+
+            .returned-stamp {
+                bottom: 50px;
+                left: 15px;
+                width: 50px;
+                height: 30px;
+            }
+
+            .wax-seal {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                margin-top: -30px;
+            }
+
+            .seal-shine {
+                width: 15px;
+                height: 15px;
+            }
+
+            .seal-text {
+                font-size: 22px;
+            }
+
+            .envelope-rope {
+                width: 180px;
+            }
+
+            .footer-credits {
+                font-size: 9px;
+            }
+        }
+
+        /* RESPONSIVE DESIGN - Mobile (480px and below) */
+        @media (max-width: 480px) {
+            header {
+                padding: 30px 15px;
+            }
+
+            .logo {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .hero-text {
+                padding: 20px;
+                background: rgba(253, 251, 247, 0.95);
+                border-radius: 4px;
+            }
+
+            .headline {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .micro-label {
+                font-size: 9px;
+                letter-spacing: 0.15em;
+            }
+
+            .stamp-cta {
+                font-size: 14px;
+                padding: 10px 20px;
+                margin-top: 25px;
+            }
+
+            nav {
+                padding: 0.75rem;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 9px;
+            }
+
+            .sorting-section {
+                padding: 40px 15px;
+            }
+
+            .sort-box {
+                min-height: 250px;
+                padding: 20px 15px;
+            }
+
+            .sort-box h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            .item-name {
+                font-size: 13px;
+            }
+
+            .item-price {
+                font-size: 11px;
+            }
+
+            .item-desc {
+                font-size: 10px;
+            }
+
+            .history-section {
+                padding: 40px 15px;
+            }
+
+            .postcard {
+                padding: 25px 15px;
+                gap: 20px;
+            }
+
+            .postcard-content {
+                font-size: 16px;
+            }
+
+            .postcard-meta {
+                padding-top: 15px;
+            }
+
+            .stamp-placeholder {
+                height: 120px;
+                margin-bottom: 15px;
+                font-size: 9px;
+            }
+
+            .reservation-section {
+                padding: 40px 15px;
+            }
+
+            .manifest-form {
+                padding: 20px 15px;
+                border: 1px solid var(--ink);
+            }
+
+            .form-row {
+                margin-bottom: 20px;
+                gap: 15px;
+            }
+
+            .input-group label {
+                font-size: 8px;
+            }
+
+            .input-group input {
+                font-size: 14px;
+                padding: 6px 0;
+            }
+
+            .manifest-form h2 {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            footer {
+                padding: 40px 15px;
+            }
+
+            .envelope-back {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .address-block {
+                top: 15px;
+                left: 15px;
+                font-size: 7px;
+            }
+
+            .address-line {
+                font-size: 7px;
+            }
+
+            .postage-stamps-group {
+                top: 30px;
+                right: 15px;
+                gap: -12px;
+            }
+
+            .postage-stamp {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .postal-stamp {
+                width: 50px;
+                height: 30px;
+                font-size: 6px;
+            }
+
+            .unclaimed-stamp {
+                top: 30px;
+                right: 15px;
+                width: 48px;
+                height: 28px;
+                font-size: 6px;
+            }
+
+            .returned-stamp {
+                bottom: 40px;
+                left: 10px;
+                width: 45px;
+                height: 26px;
+                font-size: 6px;
+            }
+
+            .wax-seal {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                margin-top: -20px;
+            }
+
+            .seal-shine {
+                width: 12px;
+                height: 12px;
+            }
+
+            .seal-text {
+                font-size: 18px;
+            }
+
+            .seal-wax-drip {
+                width: 5px;
+                height: 10px;
+            }
+
+            .envelope-rope {
+                width: 140px;
+            }
+
+            .footer-credits {
+                font-size: 8px;
+                margin-top: 25px;
+            }
+        }
+
+    </style>
+</head>
+<body vid="9">
+
+    <nav vid="10">
+        <ul vid="11">
+            <li vid="12"><a href="#signature-dishes" vid="13">Signature Dishes</a></li>
+            <li vid="14"><a href="#menu" vid="15">Menu</a></li>
+            <li vid="16"><a href="#history" vid="17">About us</a></li>
+            <li vid="18"><a href="#reserve" vid="19">Reserve</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" vid="20">
+        <div class="logo serif-display reveal" style="white-space: nowrap;" vid="21">Toast Office</div>
+        
+        <div class="hero-image-container reveal" style="animation-delay: 0.2s;" vid="22">
+            <img src="hero.jpg" alt="Vintage desk" class="hero-image" vid="24">
+            <div class="micro-label" style="margin-bottom: 20px;" vid="23">shakshuka & Pancakes</div>
+            <svg class="postmark-svg" style="top: -20px; right: -40px; transform: rotate(15deg);" viewBox="0 0 100 100" vid="25">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" vid="26"></circle>
+                <text x="50" y="45" text-anchor="middle" font-size="8" font-family="Space Mono" vid="27">ESTABLISHED</text>
+                <text x="50" y="60" text-anchor="middle" font-size="12" font-family="Space Mono" vid="28">2012</text>
+            </svg>
+        </div>
+
+        <div class="hero-text reveal" style="animation-delay: 0.4s;" vid="29">
+            <div class="micro-label" vid="30">Simply delicious</div>
+            <h1 class="headline serif-display" vid="31">Your Table is<br vid="32"><i vid="33">Certified Delivery</i></h1>
+            <p style="max-width: 400px; font-size: 14px; margin-bottom: 20px;" vid="34">Where misdirected moments find their home. A culinary experience lost in time, rediscovered in the heart of the city.</p>
+            <!-- <div class="brass-slot" vid="35"></div> -->
+            <a href="#reservations" class="stamp-cta" vid="36">Place An Order</a>
+        </div>
+    </header>
+
+    <section class="sorting-section" id="signature-dishes">
+        <div class="micro-label">Section 02 // Toast Office Fan Favourites</div>
+        <h2 class="serif-display" style="font-size: 48px; margin-top: 10px;">Signature Dishes</h2>
+        
+        <div class="sorting-grid">
+            
+            <div class="sort-box">
+                <img src="sharing-platter.png" alt="The Sharing Platter" style="width: 100%; height: 250px; object-fit: cover; margin-bottom: 25px; display: block;">
+                <h3>The Sharing Platter</h3>
+                <p class="item-desc" style="margin-bottom: 20px; font-style: italic; opacity: 0.8;">A happy meal for adults.</p>
+                <p style="font-size: 12px; line-height: 1.8; opacity: 0.9;">Created for conversations, connection, and the simple joy of sharing food, our Toast Office Sharing Platter brings people together around the table. Featuring crispy falafels, grilled Portuguese chicken strips, creamy hummus, cool tzatziki, and a fresh Mediterranean salad with roasted brinjal.</p>
+                <p style="font-size: 11px; font-weight: 700; margin-top: 20px; color: var(--brass);">Made to share. Best enjoyed together.</p>
+            </div>
+
+            
+            <div class="sort-box">
+                <img src="buttermilk-pancakes.jpg" alt="Buttermilk Pancakes" style="width: 100%; height: 250px; object-fit: cover; margin-bottom: 25px; display: block;">
+                <h3>Buttermilk Pancakes</h3>
+                <p class="item-desc" style="margin-bottom: 20px; font-style: italic; opacity: 0.8;">Sometimes the simplest pleasures are the hardest to find.</p>
+                <p style="font-size: 12px; line-height: 1.8; opacity: 0.9;">Soft, fluffy buttermilk pancakes made the way you remember them, comforting, familiar, and quietly perfect. At Toast Office, we're here to bring back the nostalgic classics that never go out of style.</p>
+                <p style="font-size: 11px; font-weight: 700; margin-top: 20px; color: var(--brass);">A little taste of simpler times</p>
+            </div>
+
+            
+            <div class="sort-box">
+                <img src="toasted-steak-sandwich.jpg" alt="Steak Sandwich" style="width: 100%; height: 250px; object-fit: cover; margin-bottom: 25px; display: block;object-position: center 70%;">
+                <h3>Steak Sandwich</h3>
+                <p class="item-desc" style="margin-bottom: 20px; font-style: italic; opacity: 0.8;">our best seller.</p>
+                <p style="font-size: 12px; line-height: 1.8; opacity: 0.9;">Tender pulled steak, golden chips, and our signature chilli-salami sauce, all tucked into perfectly toasted bread. A hearty South African classic that keeps people coming back.</p>
+                <p style="font-size: 11px; font-weight: 700; margin-top: 20px; color: var(--brass);">A Toast Office classic</p>
+            </div>
+        </div>
+    </section>
+
+        <section class="sorting-section" id="menu" vid="37">
+        <div class="micro-label" vid="38">Section 03 // Check Out Our Menu</div>
+        <h2 class="serif-display" style="font-size: 48px; margin-top: 10px;" vid="39">Menu</h2>
+        
+        <div class="sorting-grid" vid="40">
+            
+            <div class="sort-box" vid="41">
+                <div class="micro-label" vid="42">Cat. A</div>
+                <h3 vid="43">First Class</h3>
+                <div class="menu-item" vid="44">
+                    <div class="menu-item-header" vid="45">
+                        <span class="item-name" vid="46">The Inspector's Ribeye</span>
+                        <span class="item-price" vid="47">42.</span>
+                    </div>
+                    <p class="item-desc" vid="48">Dry-aged 35 days, bone-marrow butter, coal-roasted leeks.</p>
+                </div>
+                <div class="menu-item" vid="49">
+                    <div class="menu-item-header" vid="50">
+                        <span class="item-name" vid="51">Lost Letter Scallops</span>
+                        <span class="item-price" vid="52">36.</span>
+                    </div>
+                    <p class="item-desc" vid="53">Hokkaido scallops, parsnip silk, browned butter foam.</p>
+                </div>
+                <div class="menu-item" vid="54">
+                    <div class="menu-item-header" vid="55">
+                        <span class="item-name" vid="56">Bureaucrats Braised Lamb</span>
+                        <span class="item-price" vid="57">38.</span>
+                    </div>
+                    <p class="item-desc" vid="58">12-hour shank, red wine jus, heirloom carrots.</p>
+                </div>
+                <div class="envelope-hover" vid="59">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="0.5" vid="60">
+                        <rect x="2" y="4" width="20" height="16" rx="2" vid="61"></rect>
+                        <path d="M22 6L12 13L2 6" vid="62"></path>
+                    </svg>
+                </div>
+            </div>
+
+            
+            <div class="sort-box" vid="63">
+                <div class="micro-label" vid="64">Cat. B</div>
+                <h3 vid="65">Airmail</h3>
+                <div class="menu-item" vid="66">
+                    <div class="menu-item-header" vid="67">
+                        <span class="item-name" vid="68">The Carbon Copy</span>
+                        <span class="item-price" vid="69">18.</span>
+                    </div>
+                    <p class="item-desc" vid="70">Activated charcoal, mezcal, agave, lime, smoke.</p>
+                </div>
+                <div class="menu-item" vid="71">
+                    <div class="menu-item-header" vid="72">
+                        <span class="item-name" vid="73">Ink &amp; Quill</span>
+                        <span class="item-price" vid="74">16.</span>
+                    </div>
+                    <p class="item-desc" vid="75">Violette liqueur, gin, dry vermouth, lemon twist.</p>
+                </div>
+                <div class="menu-item" vid="76">
+                    <div class="menu-item-header" vid="77">
+                        <span class="item-name" vid="78">Pneumatic Tube</span>
+                        <span class="item-price" vid="79">17.</span>
+                    </div>
+                    <p class="item-desc" vid="80">Sparkling wine, peach bitters, mint essence.</p>
+                </div>
+                <div class="envelope-hover" vid="81">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="0.5" vid="82">
+                        <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9L22 2" vid="83"></path>
+                    </svg>
+                </div>
+            </div>
+
+            
+            <div class="sort-box" vid="84">
+                <div class="micro-label" vid="85">Cat. C</div>
+                <h3 vid="86">Special Delivery</h3>
+                <div class="menu-item" vid="87">
+                    <div class="menu-item-header" vid="88">
+                        <span class="item-name" vid="89">Unclaimed Soufflé</span>
+                        <span class="item-price" vid="90">14.</span>
+                    </div>
+                    <p class="item-desc" vid="91">Dark chocolate, salted caramel center, creme anglaise.</p>
+                </div>
+                <div class="menu-item" vid="92">
+                    <div class="menu-item-header" vid="93">
+                        <span class="item-name" vid="94">Postmark Tart</span>
+                        <span class="item-price" vid="95">12.</span>
+                    </div>
+                    <p class="item-desc" vid="96">Seasonal berries, lemon curd, shortcrust pastry.</p>
+                </div>
+                <div class="envelope-hover" vid="97">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="0.5" vid="98">
+                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" vid="99"></path>
+                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" vid="100"></path>
+                        <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z" vid="101"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="history-section" id="history" vid="102">
+        <div class="postcard" vid="103">
+            <div class="postcard-content" vid="104">
+                <p vid="105">To whom it may concern,</p>
+                <br vid="106">
+                <p vid="107">Toast Office was established in 2012 to house the memories that had no home. We found that the greatest stories were told in between bites of umami.</p>
+                <br vid="108">
+                <p vid="109">Today, we serve those same stories on plates. Every dish is a message from the past, recovered, restored, and delivered to your table.</p>
+                <br vid="110">
+                <p vid="111">Yours faithfully,<br vid="112">The Postmaster</p>
+            </div>
+            <div class="postcard-meta" vid="113">
+                <div class="stamp-placeholder" vid="114">
+                    AFFIX<br vid="115">POSTAGE<br vid="116">HERE
+                </div>
+                <div style="margin-top: 140px; border-bottom: 1px solid var(--ink); padding-bottom: 5px; font-size: 12px;" vid="117">
+                    Mr. &amp; Mrs. Wanderer<br vid="118">
+                    42 Silence Lane<br vid="119">
+                    The Great Beyond
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reservation-section" id="reservations" vid="120">
+        <div class="micro-label" style="text-align: center; margin-bottom: 20px;" vid="121">Form DLO-RESO-1</div>
+        <div class="manifest-form" vid="122">
+            <h2 class="serif-display" style="text-align: center; margin-bottom: 40px;" vid="123">Certified Reservation Manifest</h2>
+            <form vid="124">
+                <div class="form-row" vid="125">
+                    <div class="input-group" vid="126">
+                        <label vid="127">Recipient Name</label>
+                        <input type="text" placeholder="John Doe" vid="128">
+                    </div>
+                    <div class="input-group" vid="129">
+                        <label vid="130">Delivery Date</label>
+                        <input type="text" placeholder="MM / DD / YY" vid="131">
+                    </div>
+                </div>
+                <div class="form-row" vid="132">
+                    <div class="input-group" vid="133">
+                        <label vid="134">Party Size (Unit Count)</label>
+                        <input type="number" placeholder="02" vid="135">
+                    </div>
+                    <div class="input-group" vid="136">
+                        <label vid="137">Preferred Dispatch Time</label>
+                        <input type="text" placeholder="19:00 HRS" vid="138">
+                    </div>
+                </div>
+                <div class="input-group" style="margin-bottom: 40px;" vid="139">
+                    <label vid="140">Special Instructions (Non-Classified)</label>
+                    <input type="text" placeholder="Dietary restrictions or special occasions..." vid="141">
+                </div>
+                <div style="text-align: center;" vid="142">
+                    <button type="submit" class="stamp-cta" style="background: none; cursor: pointer;" vid="143">STAMP TO CONFIRM</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer" vid="144">
+        <div class="envelope-back" vid="145">
+            <!-- SVG Defs for Patterns and Textures -->
+            <svg width="0" height="0" style="position: absolute;">
+                <defs>
+                    <!-- Paper Texture -->
+                    <filter id="paperTexture">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" seed="2"/>
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+                    </filter>
+                    <!-- Worn Edges -->
+                    <filter id="wornEdges">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise"/>
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+                    </filter>
+                </defs>
+            </svg>
+
+            <!-- Envelope Background Layer -->
+            <div class="envelope-texture"></div>
+
+            <!-- Address Block -->
+            <div class="address-block">
+                <div class="address-line">TOAST OFFICE</div>
+                <div class="address-line small">DELICIOUS POSTAL SERVICE</div>
+            </div>
+
+            <!-- Postal Markings -->
+            <div class="postal-stamp unclaimed-stamp">
+                <div class="stamp-inner">UNCLAIMED</div>
+            </div>
+
+            <div class="postal-stamp returned-stamp">
+                <div class="stamp-inner">APPROVED</div>
+            </div>
+
+            <!-- Postage Stamps -->
+            <div class="postage-stamps-group">
+                <svg class="postage-stamp" viewBox="0 0 60 60" width="60" height="60">
+                    <rect x="2" y="2" width="56" height="56" fill="#D4A574" stroke="#8B7355" stroke-width="1" stroke-dasharray="3,2"/>
+                    <rect x="5" y="5" width="50" height="50" fill="#C9956F" opacity="0.6"/>
+                    <circle cx="30" cy="30" r="20" fill="none" stroke="#8B7355" stroke-width="1"/>
+                    <text x="30" y="35" font-family="Playfair Display" font-size="8" text-anchor="middle" fill="#5D4037">2012</text>
+                </svg>
+                <!-- <svg class="postage-stamp" viewBox="0 0 60 60" width="60" height="60" style="transform: rotate(-15deg); margin-left: -15px;">
+                    <rect x="2" y="2" width="56" height="56" fill="#8B4513" stroke="#654321" stroke-width="1" stroke-dasharray="3,2"/>
+                    <rect x="5" y="5" width="50" height="50" fill="#A0522D" opacity="0.6"/>
+                    <path d="M20 20 Q30 15 40 20 Q35 30 30 35 Q25 30 20 20" fill="#F5DEB3" opacity="0.4"/>
+                    <text x="30" y="45" font-family="Space Mono" font-size="6" text-anchor="middle" fill="#FFF" font-weight="bold">PAID</text> -->
+                </svg>
+                <svg class="postage-stamp" viewBox="0 0 60 60" width="60" height="60" style="transform: rotate(10deg); margin-left: -15px;">
+                    <rect x="2" y="2" width="56" height="56" fill="#CD853F" stroke="#8B4513" stroke-width="1" stroke-dasharray="3,2"/>
+                    <rect x="5" y="5" width="50" height="50" fill="#DAA520" opacity="0.6"/>
+                    <circle cx="30" cy="30" r="18" fill="none" stroke="#8B4513" stroke-width="2"/>
+                    <text x="30" y="32" font-family="Space Mono" font-size="7" text-anchor="middle" fill="#654321" font-weight="bold">TO</text>
+                </svg>
+            </div>
+
+            <!-- Decorative Wax Drips -->
+            <div class="wax-drip-container">
+                <!-- <div class="wax-drip" style="left: 10%; top: 15%;"></div> -->
+                <!-- <div class="wax-drip" style="right: 15%; top: 20%;"></div> -->
+                <!-- <div class="wax-drip" style="left: 20%; bottom: 15%;"></div> -->
+            </div>
+
+            <!-- Rope/Twine Element -->
+            <div class="envelope-rope"></div>
+
+            <!-- Main Wax Seal -->
+            <div class="wax-seal" vid="146">
+                <div class="seal-shine"></div>
+                <div class="seal-text">TO</div>
+                <!-- <div class="seal-wax-drip"></div> -->
+            </div>
+        </div>
+        <div class="footer-credits" vid="147">
+            TOAST OFFICE © 2012-2026<br vid="148">
+            UNCLAIMED - UNRETURNED - UNFORGETTABLE
+        </div>
+    
+
+    <script vid="149">
+        
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .sort-box').forEach(el => {
+            observer.observe(el);
+        });
+
+        
+        document.querySelectorAll('.stamp-cta').forEach(button => {
+            button.addEventListener('mousedown', function(e) {
+                const stamp = document.createElement('div');
+                stamp.style.position = 'fixed';
+                stamp.style.left = (e.clientX - 25) + 'px';
+                stamp.style.top = (e.clientY - 25) + 'px';
+                stamp.style.width = '50px';
+                stamp.style.height = '50px';
+                stamp.style.border = '2px solid var(--wax)';
+                stamp.style.borderRadius = '50%';
+                stamp.style.opacity = '0.4';
+                stamp.style.pointerEvents = 'none';
+                stamp.style.zIndex = '1000';
+                stamp.style.transform = 'scale(2)';
+                stamp.style.transition = 'all 0.3s ease-out';
+                
+                document.body.appendChild(stamp);
+                
+                requestAnimationFrame(() => {
+                    stamp.style.transform = 'scale(1)';
+                    stamp.style.opacity = '0';
+                });
+
+                setTimeout(() => stamp.remove(), 300);
+            });
+        });
+
+        
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</footer></body></html>

@@ -1,0 +1,112 @@
+:root {
+    --parchment: #FDFBF7;
+    --ink: #1C1C1C;
+    --brass: #A68B67;
+    --wax: #7D2619;
+    --manila: #E8E2D2;
+    --border: rgba(28, 28, 28, 0.1);
+}
+
+html, body {
+    background-color: var(--parchment);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: clamp(1rem, 1.25vw, 1.125rem); /* 16px to 18px */
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+html, body::webkit-scrollbar {
+    display: none;
+
+}
+
+nav {
+    background: var(--wax);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--ink);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--wax);
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+}
+
+p {
+    
+}
+
+.hero {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    gap: 4px;
+    margin-top: 8vh;
+    
+}
+
+.micro-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--brass);
+    font-weight: 700;
+}
+
+.brass-slot {
+    width: 200px;
+    height: 40px;
+    border: 2px solid var(--brass);
+    position: relative;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brass-slot::after {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 4px;
+    background: var(--ink);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
