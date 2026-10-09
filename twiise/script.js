@@ -1,24 +1,14 @@
-// Intersection Observer for Scroll Animations
-const observerOptions = {
-    threshold: 0.1
-};
-
+// Reveal sections as they enter the viewport.
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.1 });
 
-// Apply to sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = "0";
-    section.style.transform = "translateY(30px)";
-    section.style.transition = "all 0.8s ease-out";
-    observer.observe(section);
-});
+document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
 
 // Smooth Scroll for Nav Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -26,6 +16,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
+        });
+    });
+});
+
+// Switch displayed subscription prices without reloading the page.
+document.querySelectorAll('.billing-option').forEach(option => {
+    option.addEventListener('click', () => {
+        const billingPeriod = option.dataset.billing;
+
+        document.querySelectorAll('.billing-option').forEach(button => {
+            const isActive = button === option;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        document.querySelectorAll('.price strong').forEach(price => {
+            price.textContent = price.dataset[billingPeriod];
         });
     });
 });
